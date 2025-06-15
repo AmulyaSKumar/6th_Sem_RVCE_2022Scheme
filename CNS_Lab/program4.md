@@ -1,18 +1,12 @@
-Here's the full **README file** for your **Vigenère Cipher** program in C, including explanation, code, sample output, and viva questions.
-
----
-
-## 🔐 README: Vigenère Cipher Implementation in C
-
-### 🎯 Objective:
+##  Vigenère Cipher Implementation in C
 
 To implement the **Vigenère Cipher**, a method of encrypting alphabetic text using a series of interwoven Caesar ciphers based on the letters of a repeating keyword.
 
----
 
-### 📘 Algorithm Overview
 
-#### ✅ **Encryption**
+###  Algorithm Overview
+
+####  **Encryption**
 
 Given:
 
@@ -22,7 +16,7 @@ Given:
 
 Each letter of the plaintext is shifted by the corresponding letter in the key.
 
-#### ✅ **Decryption**
+####  **Decryption**
 
 Given:
 
@@ -32,7 +26,7 @@ Reverse the shift using the same key.
 
 ---
 
-### 🧠 Sample Tabula Recta:
+### Sample Tabula Recta:
 
 Used internally — think of it like 26 Caesar ciphers starting from A to Z:
 
@@ -45,7 +39,7 @@ C C D E F G H I ...
 
 ---
 
-### 💻 Sample Output:
+### Sample Output:
 
 ```
 Vigenère Cipher
@@ -65,7 +59,7 @@ Decrypted: ATTACKATDAWN
 
 ---
 
-### 🧑‍💻 Code (vigenere\_cipher.c):
+###  Code (vigenere\_cipher.c):
 
 ```c
 #include <stdio.h>
@@ -144,7 +138,7 @@ int main() {
 
 ---
 
-### 🧪 Viva Questions and Answers:
+###  Viva Questions and Answers:
 
 **Q1. What is the main difference between Caesar and Vigenère cipher?**
 **A:** Caesar uses a fixed shift, while Vigenère uses a repeating key to determine the shift for each letter.
@@ -167,6 +161,4 @@ int main() {
 **Q7. Is the Vigenère cipher symmetric or asymmetric?**
 **A:** Symmetric — the same key is used for encryption and decryption.
 
----
 
-Let me know if you want this converted to a PDF, or if you'd like additional versions (e.g., in Python).
