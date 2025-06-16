@@ -1,5 +1,3 @@
-Here is the **README file** for the **Leaky Bucket Algorithm C program** you just received:
-## Leaky Bucket Algorithm Simulation (C Program)
 
 
 To simulate and demonstrate how the **Leaky Bucket Algorithm** is used to regulate network traffic. It helps to ensure that **burst traffic** is converted to a **steady stream**, thus avoiding **congestion** and **packet loss** in the network.
@@ -50,12 +48,18 @@ int main() {
 
     for (i = 0; i < incoming_packets; i++) {
         printf("\n--------------------------------------------------\n");
-
-        printf("Incoming packet size at time %d: ", time);
+        printf("Packet %d: Incoming packet size at time %d: ", i + 1, time);
         scanf("%d", &packet_size);
 
         if (packet_size + stored > bucket_size) {
-            printf("Bucket Overflow! Packet of size %d is discarded.\n", packet_size);
+            int accepted = bucket_size - stored;
+            if (accepted > 0) {
+                stored += accepted;
+                printf("Bucket Overflow! Only %d bytes accepted, %d bytes discarded.\n",
+                       accepted, packet_size - accepted);
+            } else {
+                printf("Bucket Overflow! Entire packet of %d bytes discarded.\n", packet_size);
+            }
         } else {
             stored += packet_size;
             printf("Packet accepted. Current stored data: %d bytes\n", stored);
@@ -66,8 +70,8 @@ int main() {
         while (stored > 0 && wait_time < 5) {
             int transmit = stored >= output_rate ? output_rate : stored;
             stored -= transmit;
-            printf("Time %d -------- Transmitted %d bytes | Remaining = %d bytes\n", 
-                    time + 1 + wait_time, transmit, stored);
+            printf("Time %d -------- Transmitted %d bytes | Remaining = %d bytes\n",
+                   time + 1 + wait_time, transmit, stored);
             wait_time++;
         }
 
@@ -78,15 +82,15 @@ int main() {
     while (stored > 0) {
         int transmit = stored >= output_rate ? output_rate : stored;
         stored -= transmit;
-        printf("Time %d -------- Transmitted %d bytes | Remaining = %d bytes\n", 
-                ++time, transmit, stored);
+        printf("Time %d -------- Transmitted %d bytes | Remaining = %d bytes\n",
+               ++time, transmit, stored);
     }
 
     printf("--------------------------------------------------\n");
     printf("All packets processed and bucket is now empty.\n");
 
     return 0;
-}
+}    
 ```
 
 ###  **How to Compile and Run:**
@@ -98,23 +102,13 @@ gcc leaky_bucket.c -o leaky
 
 ---
 
-###  **Sample Input:**
+
+###  **Sample Output:**
 
 ```
 Enter bucket size: 10
 Enter output rate: 2
 Enter number of incoming packets: 3
-
-Incoming packet size at time 0: 6
-Incoming packet size at time 3: 5
-Incoming packet size at time 6: 12
-```
-
----
-
-###  **Sample Output:**
-
-```
 --------------------------------------------------
 Incoming packet size at time 0: 6
 Packet accepted. Current stored data: 6 bytes
