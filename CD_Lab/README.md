@@ -1,9 +1,5 @@
 # RVCE 6th Sem Compiler Design Programs
 
-<p>RV College of Engineering, Bengaluru</p>
-<p><strong><span style="font-family: serif; font-size: 28px;">Compiler Design(18CS63)</span></strong></p>
-<p>Lab Programs for CIE and SEE </p>
-<p><br></p>
 <ol>
     <li>Program 1:&nbsp;<ol>
             <li>Write a LEX program to count number of words, lines, characters and whitespaces in a given paragraph.</li>
@@ -29,4 +25,16 @@
     <li>Program 6: YACC program that reads the C statements for an input file and converts them in quadruple three address intermediate code.</li>
     <li>Program 7: Write a YACC program that identifies the Function Definition of C language.</li>
     <li>Program 8: Write a YACC program that generates Assembly language (Target) Code for valid Arithmetic Expression.</li>
+</ol>
+<ol>
+    <p>Commands for execution:</p>
+    <li>For lex programs:</li>
+    <p>lex file.l</p>
+    <p>gcc lex.yy.c</p>
+    <p>./a.out</p>
+    <li>For yacc programs:</li>
+    <p>lex file.l</p>
+    <p>yacc -d file.y</p>
+    <p>gcc lex.yy.c yy.tab.c</p>
+    <p>./a.out</p>
 </ol>
