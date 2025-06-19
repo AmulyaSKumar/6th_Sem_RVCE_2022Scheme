@@ -21,7 +21,10 @@
             <li>Write a YACC program to recognize nested IF control statements (C language) and display the number of levels of nesting.</li>
         </ol>
     </li>
-    <li>Program 5: Write a C program to implement a ShiftReduce parser for a given grammar and generate the parsing table by parsing the given string.</li>
+    <li>Program 5: Write a YACC program to recognize Declaration statement (C language) and 
+display the number variables declared . 
+Variable can be any basic data type  or array type 
+Example int a[10],a,b,c;   </li>
     <li>Program 6: YACC program that reads the C statements for an input file and converts them in quadruple three address intermediate code.</li>
     <li>Program 7: Write a YACC program that identifies the Function Definition of C language.</li>
     <li>Program 8: Write a YACC program that generates Assembly language (Target) Code for valid Arithmetic Expression.</li>
