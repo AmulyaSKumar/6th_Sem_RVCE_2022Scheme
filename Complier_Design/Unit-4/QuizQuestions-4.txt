@@ -1,0 +1,78 @@
+3. Why is an intermediate representation (IR) important in a compiler?
+IR allows separation between source language details (handled by the front end) and target machine specifics (handled by the back end), enabling compiler modularity, reusability, and easier optimization.
+
+4.List and briefly describe two common forms of intermediate representations mentioned in the text.
+Syntax Trees: High-level representations that reflect the hierarchical structure of source code, useful for type checking and semantic analysis.
+Three-Address Code: A lower-level form that resembles assembly instructions, typically of the form x = y op z, and is useful for control flow and optimization.
+
+8.Define static checking and give two examples of checks that are typically performed during this phase.
+Static checking ensures program correctness without executing it. Examples include:
+Type checking (e.g., ensuring int variables aren't assigned strings)
+Control flow checks (e.g., ensuring break appears inside loops or switch statements)
+
+9.What is a Directed Acyclic Graph (DAG), and how does it differ from a syntax tree in representing expressions?
+A DAG represents expressions where common subexpressions are shared using nodes with multiple parents, reducing redundancy. In contrast, a syntax tree duplicates these subexpressions in separate branches.
+
+13. What is a "value number" in the context of DAG construction?
+A value number is an index or identifier representing a unique node in the DAG. It allows efficient referencing and comparison of nodes during construction.
+
+14.Describe the signature of a node used in the value-number method.
+The signature is a triple (op, l, r), where op is the operation label, and l and r are the value numbers of the left and right children. It uniquely identifies a node.
+
+4. What are the three types of addresses used in three-address code?
+Names (e.g., variables or identifiers)
+Constants (e.g., numeric literals)
+Compiler-generated temporaries
+
+9. What is a triple and how does it differ from a quadruple?
+A triple has only three fields: op, arg1, and arg2. It omits the result field, and results are referred to by position/index instead of temporary names.
+
+10.What is a potential downside of using triples over quadruples in an optimizing compiler?
+If an instruction is moved, all references to its index (position) must be updated, unlike quadruples where temporaries can remain unchanged.
+
+11. How do indirect triples address the issue of reordering in triples?
+Indirect triples use an instruction list of pointers to triples. Instructions can be reordered by modifying the pointer list, without changing the actual triples or references.
+
+12. What are the two key properties of SSA form?
+Each variable is assigned exactly once.
+The use of ϕ-functions to merge variable values from different control flow paths.
+
+13. The type record({int x; float y;}) has a total width of:
+A) 12 bytes
+B) 8 bytes
+C) Depends on alignment
+D) 16 bytes
+ans: C) Depends on alignment
+(If alignment is enforced, int may take 4 bytes, float 8 bytes, with possible padding.)
+
+Q1. What is the purpose of type checking in a compiler?
+To ensure that operations in a program are used with operands of the correct type, preventing type errors at runtime (e.g., not using an integer where a boolean is expected).
+
+Q5. Which of the following is not a basic type?
+A) int
+B) float
+C) array
+D) char
+Answer: C) array
+(Array is a type constructor, not a basic type.)
+
+Q6. In a language like C, how does the compiler determine how much memory to allocate for a variable?
+A) It guesses based on the variable name
+B) It uses the variable’s type and width
+C) It waits until runtime
+D) It uses the hash code of the variable
+Answer: B) It uses the variable’s type and width
+
+8. What is "padding" in storage layout?Padding is extra space allocated to ensure proper data alignment according to machine constraints (e.g., aligning data to 4-byte boundaries).
+
+5. Explain the difference between name equivalence and structural equivalence of types.
+Name equivalence: Two types are equivalent only if they have the same name.
+Structural equivalence: Two types are equivalent if they have the same structure (even if named differently).
+
+1. What are the two main applications of types in a compiler?
+Type Checking – Ensures that operands match the expected types of operators.
+Translation – Helps determine storage needs, array addressing, type conversions, and operator selection.
+
+2.What is a type expression?
+A type expression represents the structure of a type. It can be a basic type (e.g., int, float) or formed using type constructors like array, record, or function types (!).
+
